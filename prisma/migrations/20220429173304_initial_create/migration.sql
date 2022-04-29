@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Drink" (
+CREATE TABLE "drinks" (
     "id" SERIAL NOT NULL,
     "name" VARCHAR(30) NOT NULL,
     "categoryId" INTEGER NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE "Drink" (
 );
 
 -- CreateTable
-CREATE TABLE "Category" (
+CREATE TABLE "categories" (
     "id" SERIAL NOT NULL,
     "desc" VARCHAR(30) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -26,7 +26,7 @@ CREATE TABLE "Category" (
 );
 
 -- CreateTable
-CREATE TABLE "Glass" (
+CREATE TABLE "glasses" (
     "id" SERIAL NOT NULL,
     "desc" VARCHAR(30) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -35,8 +35,14 @@ CREATE TABLE "Glass" (
     CONSTRAINT "PK_Glass" PRIMARY KEY ("id")
 );
 
--- AddForeignKey
-ALTER TABLE "Drink" ADD CONSTRAINT "FK_Drink_Category" FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+-- CreateIndex
+CREATE UNIQUE INDEX "categories_desc_key" ON "categories"("desc");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "glasses_desc_key" ON "glasses"("desc");
 
 -- AddForeignKey
-ALTER TABLE "Drink" ADD CONSTRAINT "FK_Drink_Glass" FOREIGN KEY ("glassId") REFERENCES "Glass"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "drinks" ADD CONSTRAINT "FK_Drink_Category" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- AddForeignKey
+ALTER TABLE "drinks" ADD CONSTRAINT "FK_Drink_Glass" FOREIGN KEY ("glassId") REFERENCES "glasses"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;

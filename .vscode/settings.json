@@ -1,0 +1,25 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#1ad7ff",
+    "titleBar.inactiveBackground": "#1ad7ff",
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveForeground": "#000",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.fixAll.eslint": true,
+  }
+  },
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "drink.io",
+      "database": "drinksApi",
+      "username": "root",
+      "password": "root"
+    }
+  ]
+}
