@@ -1,13 +1,19 @@
+import { categoryController } from '@controllers/CategoryController';
+import { glassController } from '@controllers/GlassController';
 import { Router } from 'express';
-
-// import CategoryController from './app/controllers/CategoryController';
 
 const router = Router();
 
-// router.get('/categories', CategoryController.index);
-// router.get('/categories/:id', CategoryController.show);
-// router.post('/categories', CategoryController.store);
-// router.put('/categories/:id', CategoryController.update);
-// router.delete('/categories/:id', CategoryController.delete);
+router.get('/categories', categoryController.index);
+router.get('/categories/:id', categoryController.show);
+router.post('/categories', categoryController.store);
+router.put('/categories/:id', categoryController.update);
+router.delete('/categories/:id', categoryController.delete);
+
+router.get('/glass', glassController.index);
+router.get('/glass/:id', glassController.show);
+router.post('/glass', glassController.store);
+router.put('/glass/:id', glassController.update);
+router.delete('/glass/:id', glassController.delete);
 
 export default router;
