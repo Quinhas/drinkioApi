@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Drink {
+  id           Int      @id(map: "PK_Drink") @default(autoincrement())
+  name         String   @db.VarChar(30)
+  categoryId   Int      @db.Integer
+  alcoholic    Boolean  @db.Boolean
+  glassId      Int      @db.Integer
+  instructions Json     @db.Json
+  thumb        String?  @db.VarChar(150)
+  ingredients  Json     @db.Json
+  measures     Json     @db.Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  category Category @relation(fields: [categoryId], references: [id], map: "FK_Drink_Category")
+  glass    Glass    @relation(fields: [glassId], references: [id], map: "FK_Drink_Glass")
+}
+
+model Category {
+  id        Int      @id(map: "PK_Category") @default(autoincrement())
+  desc      String   @db.VarChar(30)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Drinks Drink[]
+}
+
+model Glass {
+  id        Int      @id(map: "PK_Glass") @default(autoincrement())
+  desc      String   @db.VarChar(30)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Drinks Drink[]
+}
