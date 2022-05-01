@@ -17,8 +17,13 @@ class CategoryRepository {
   }
 
   async findByDesc(desc: string) {
-    const category = await prismaClient.category.findUnique({
-      where: { desc: desc },
+    const category = await prismaClient.category.findFirst({
+      where: {
+        desc: {
+          equals: desc,
+          mode: 'insensitive',
+        },
+      },
     });
 
     return category;

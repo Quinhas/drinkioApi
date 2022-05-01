@@ -20,6 +20,22 @@ class GlassController {
     return res.json(glass);
   }
 
+  async showByDesc(req: Request, res: Response) {
+    const { desc } = req.body;
+
+    if (!desc) {
+      return res.status(400).json({ error: 'Description [desc] is required.' });
+    }
+
+    const glass = await glassRepository.findByDesc(desc);
+
+    if (!glass) {
+      return res.status(404).json({ error: `Glass \'${desc}\' not found.` });
+    }
+
+    return res.json(glass);
+  }
+
   async store(req: Request, res: Response) {
     const { desc } = req.body;
 
@@ -27,16 +43,16 @@ class GlassController {
       return res.status(400).json({ error: 'Description [desc] is required.' });
     }
 
-    const categoryExists = await glassRepository.findByDesc(desc);
-    if (categoryExists) {
+    const glassExists = await glassRepository.findByDesc(desc);
+    if (glassExists) {
       return res.status(400).json({ error: `Glass '${desc}' already exists.` });
     }
 
-    const newCategory: GlassInput = {
+    const newGlass: GlassInput = {
       desc: desc,
     };
 
-    const glass = await glassRepository.create(newCategory);
+    const glass = await glassRepository.create(newGlass);
 
     return res.status(201).json(glass);
   }

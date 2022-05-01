@@ -1,7 +1,7 @@
 {
   "name": "drinks-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.ts",
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --exit-child --transpile-only --tree-kill --ignore-watch node_modules --no-notify src/app.ts"

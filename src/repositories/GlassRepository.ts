@@ -17,8 +17,13 @@ class GlassRepository {
   }
 
   async findByDesc(desc: string) {
-    const glass = await prismaClient.glass.findUnique({
-      where: { desc: desc },
+    const glass = await prismaClient.glass.findFirst({
+      where: {
+        desc: {
+          equals: desc,
+          mode: 'insensitive',
+        },
+      },
     });
 
     return glass;

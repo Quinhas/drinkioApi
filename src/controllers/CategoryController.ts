@@ -20,6 +20,22 @@ class CategoryController {
     return res.json(category);
   }
 
+  async showByDesc(req: Request, res: Response) {
+    const { desc } = req.body;
+
+    if (!desc) {
+      return res.status(400).json({ error: 'Description [desc] is required.' });
+    }
+
+    const category = await categoryRepository.findByDesc(desc);
+
+    if (!category) {
+      return res.status(404).json({ error: `Category \'${desc}\' not found.` });
+    }
+
+    return res.json(category);
+  }
+
   async store(req: Request, res: Response) {
     const { desc } = req.body;
 
