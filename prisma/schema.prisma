@@ -9,12 +9,12 @@ datasource db {
 
 model Drink {
   id           Int      @id(map: "PK_Drink") @default(autoincrement())
-  name         String   @db.VarChar(30)
+  name         String   @unique @db.VarChar(150)
   categoryId   Int      @db.Integer
   alcoholic    Boolean  @db.Boolean
   glassId      Int      @db.Integer
-  instructions Json     @db.Json
-  thumb        String?  @db.VarChar(150)
+  instructions String   @db.Text
+  thumb        String?  @db.Text
   ingredients  Json     @db.Json
   measures     Json     @db.Json
   createdAt    DateTime @default(now())
