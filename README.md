@@ -8,6 +8,16 @@
   <img src="https://img.shields.io/github/stars/Quinhas/drinkioApi?label=stars&message=MIT&color=5965E0&labelColor=121214" alt="Stars">
 </p>
 
+## 👨‍💻 Tecnologias
+
+Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- [NodeJS](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
 ## 🚀 Instalação e Configuração
 
 ```bash
