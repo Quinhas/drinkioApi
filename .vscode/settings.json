@@ -16,8 +16,8 @@
       "server": "localhost",
       "port": 5432,
       "driver": "PostgreSQL",
-      "name": "drink.io",
-      "database": "drinksApi",
+      "name": "drinkioApi",
+      "database": "drinkio",
       "username": "root",
       "password": "root"
     }

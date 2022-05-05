@@ -1,5 +1,5 @@
 {
-  "name": "drinks-api",
+  "name": "drinkio-api",
   "version": "1.0.0",
   "main": "src/app.ts",
   "license": "MIT",
