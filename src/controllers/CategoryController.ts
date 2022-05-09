@@ -37,7 +37,7 @@ class CategoryController {
   }
 
   async store(req: Request, res: Response) {
-    const { desc } = req.body;
+    const { desc, thumb } = req.body;
 
     if (!desc) {
       return res.status(400).json({ error: 'Description [desc] is required.' });
@@ -52,6 +52,7 @@ class CategoryController {
 
     const newCategory: CategoryInput = {
       desc: desc,
+      thumb: thumb,
     };
 
     const category = await categoryRepository.create(newCategory);
@@ -61,7 +62,7 @@ class CategoryController {
 
   async update(req: Request, res: Response) {
     const id = Number(req.params.id);
-    const { desc } = req.body;
+    const { desc, thumb } = req.body;
 
     if (!desc) {
       return res.status(400).json({ error: 'Description [desc] is required.' });
@@ -81,6 +82,7 @@ class CategoryController {
 
     const newCategory: CategoryInput = {
       desc: desc,
+      thumb: thumb,
     };
 
     const category = await categoryRepository.update(id, newCategory);

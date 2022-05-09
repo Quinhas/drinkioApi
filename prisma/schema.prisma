@@ -29,6 +29,7 @@ model Drink {
 model Category {
   id        Int      @id(map: "PK_Category") @default(autoincrement())
   desc      String   @unique @db.VarChar(30)
+  thumb     String?   @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
