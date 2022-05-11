@@ -1,4 +1,5 @@
 import cors from '@middlewares/cors';
+import logMiddleware from '@middlewares/logMiddleware';
 import express, { Request, Response } from 'express';
 import path from 'path';
 import errorHandler from './middlewares/errorHandler';
@@ -12,6 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors);
+app.use(logMiddleware);
 app.use(routes);
 app.use(errorHandler);
 
