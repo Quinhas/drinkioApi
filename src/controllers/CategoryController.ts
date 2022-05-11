@@ -4,7 +4,8 @@ import { Request, Response } from 'express';
 
 class CategoryController {
   async index(req: Request, res: Response) {
-    const categories = await categoryRepository.findAll();
+    const { onlyTop } = req.query;
+    const categories = await categoryRepository.findAll(onlyTop === 'true' ? true : false);
     return res.json(categories);
   }
 

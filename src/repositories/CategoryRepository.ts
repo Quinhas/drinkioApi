@@ -2,8 +2,18 @@ import { CategoryInput } from '@models/Category';
 import { prismaClient } from 'src/database/prismaClient';
 
 class CategoryRepository {
-  async findAll() {
-    const categories = await prismaClient.category.findMany();
+  async findAll(onlyTop = false) {
+    const where = onlyTop
+      ? {
+          top: true,
+        }
+      : {};
+    const categories = await prismaClient.category.findMany({
+      where,
+      orderBy: {
+        id: 'asc',
+      },
+    });
 
     return categories;
   }
