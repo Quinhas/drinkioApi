@@ -15,6 +15,7 @@ model Drink {
   glassId      Int      @db.Integer
   instructions String   @db.Text
   thumb        String?  @db.Text
+  top          Boolean  @default(false)
   ingredients  Json     @db.Json
   measures     Json     @db.Json
   createdAt    DateTime @default(now())
@@ -29,7 +30,8 @@ model Drink {
 model Category {
   id        Int      @id(map: "PK_Category") @default(autoincrement())
   desc      String   @unique @db.VarChar(30)
-  thumb     String?   @db.Text
+  thumb     String?  @db.Text
+  top       Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

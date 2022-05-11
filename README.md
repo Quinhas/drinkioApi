@@ -17,10 +17,14 @@ Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [Prisma](https://www.prisma.io/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Docker](https://www.docker.com/)
 
 ## 🚀 Instalação e Configuração
 
 ```bash
+
+# Para rodar essa aplicação é necessário ter instalado o Docker: https://www.docker.com/
+
 # Clone o repositório e entre na pasta do projeto
 $ git clone git@github.com:Quinhas/drinkioApi.git && cd drinkioApi
 
@@ -31,6 +35,9 @@ $ yarn install
 
 # Crie um arquivo .env a partir do .env.default e atualize as variáveis de ambiente
 
+# Inicie o docker
+$ docker-compose up
+
 # Rode o comando para criar o banco de dados
 $ yarn prisma db pull
 
@@ -38,6 +45,9 @@ $ yarn prisma db pull
 $ npm run dev
 # ou
 $ yarn dev
+
+# Caso queira popular o banco de dados
+$ yarn restoreData
 
 # Abra http://localhost:3001 no seu navegador para ver a aplicação rodando!
 ```
