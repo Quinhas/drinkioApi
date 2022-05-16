@@ -21,6 +21,9 @@ class CategoryRepository {
   async findById(id: number) {
     const category = await prismaClient.category.findUnique({
       where: { id: id },
+      include: {
+        drinks: true,
+      },
     });
 
     return category;
