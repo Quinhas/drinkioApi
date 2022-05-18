@@ -1,6 +1,6 @@
-import { GlassInput } from '@models/Glass';
-import { glassRepository } from '@repositories/GlassRepository';
 import { Request, Response } from 'express';
+import { GlassInput } from '../models/Glass';
+import { glassRepository } from '../repositories/GlassRepository';
 
 class GlassController {
   async index(req: Request, res: Response) {

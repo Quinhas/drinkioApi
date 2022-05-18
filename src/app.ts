@@ -1,13 +1,13 @@
-import cors from '@middlewares/cors';
-import logMiddleware from '@middlewares/logMiddleware';
 import express, { Request, Response } from 'express';
 import path from 'path';
+import cors from './middlewares/cors';
 import errorHandler from './middlewares/errorHandler';
+import logMiddleware from './middlewares/logMiddleware';
 import routes from './routes';
 import log from './utils/log';
 require('express-async-errors');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
