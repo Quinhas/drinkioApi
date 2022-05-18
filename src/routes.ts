@@ -12,12 +12,12 @@ router.post('/categories', categoryController.store);
 router.put('/categories/:id', categoryController.update);
 router.delete('/categories/:id', categoryController.delete);
 
-router.get('/glass', glassController.index);
-router.get('/glass/:id', glassController.show);
-router.post('/glass/byDesc/', glassController.showByDesc);
-router.post('/glass', glassController.store);
-router.put('/glass/:id', glassController.update);
-router.delete('/glass/:id', glassController.delete);
+router.get('/glasses', glassController.index);
+router.get('/glasses/:id', glassController.show);
+router.post('/glasses/byDesc/', glassController.showByDesc);
+router.post('/glasses', glassController.store);
+router.put('/glasses/:id', glassController.update);
+router.delete('/glasses/:id', glassController.delete);
 
 router.get('/drinks', drinkController.index);
 router.get('/drinks/:id', drinkController.show);

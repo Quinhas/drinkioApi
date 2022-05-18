@@ -43,6 +43,7 @@ model Category {
 model Glass {
   id        Int      @id(map: "PK_Glass") @default(autoincrement())
   desc      String   @unique @db.VarChar(30)
+  thumb     String?  @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

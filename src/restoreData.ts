@@ -163,7 +163,7 @@ async function init() {
       };
 
       try {
-        const { data: glass } = await drinkioApi.post('/glass', _glass);
+        const { data: glass } = await drinkioApi.post('/glasses', _glass);
         console.log(`Copo ${_glass.desc} cadastrado com sucesso.`);
         return glass;
       } catch (error) {

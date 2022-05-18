@@ -4,8 +4,8 @@ import { Request, Response } from 'express';
 
 class GlassController {
   async index(req: Request, res: Response) {
-    const categories = await glassRepository.findAll();
-    return res.json(categories);
+    const glasses = await glassRepository.findAll();
+    return res.json(glasses);
   }
 
   async show(req: Request, res: Response) {
@@ -65,21 +65,21 @@ class GlassController {
       return res.status(400).json({ error: 'Description [desc] is required.' });
     }
 
-    const categoryExistsByID = await glassRepository.findById(id);
-    if (!categoryExistsByID) {
+    const glassExistsByID = await glassRepository.findById(id);
+    if (!glassExistsByID) {
       return res.status(404).json({ error: `Glass '${id}' not found.` });
     }
 
-    const categoryExistsByDesc = await glassRepository.findByDesc(desc);
-    if (categoryExistsByDesc) {
+    const glassExistsByDesc = await glassRepository.findByDesc(desc);
+    if (glassExistsByDesc) {
       return res.status(404).json({ error: `Glass '${desc}' already exists.` });
     }
 
-    const newCategory: GlassInput = {
+    const newGlass: GlassInput = {
       desc: desc,
     };
 
-    const glass = await glassRepository.update(id, newCategory);
+    const glass = await glassRepository.update(id, newGlass);
 
     return res.status(200).json(glass);
   }
@@ -87,9 +87,9 @@ class GlassController {
   async delete(req: Request, res: Response) {
     const id = Number(req.params.id);
 
-    const categoryExists = await glassRepository.findById(id);
+    const glassExists = await glassRepository.findById(id);
 
-    if (!categoryExists) {
+    if (!glassExists) {
       return res.status(404).json({ error: 'Glass not found.' });
     }
 

@@ -3,9 +3,9 @@ import { prismaClient } from 'src/database/prismaClient';
 
 class GlassRepository {
   async findAll() {
-    const glass = await prismaClient.glass.findMany();
+    const glasses = await prismaClient.glass.findMany();
 
-    return glass;
+    return glasses;
   }
 
   async findById(id: number) {

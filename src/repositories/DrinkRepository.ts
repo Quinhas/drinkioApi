@@ -9,15 +9,15 @@ class DrinkRepository {
   }
 
   async findById(id: number) {
-    const dirnk = await prismaClient.drink.findUnique({
+    const drink = await prismaClient.drink.findUnique({
       where: { id: id },
     });
 
-    return dirnk;
+    return drink;
   }
 
   async findByName(name: string) {
-    const dirnk = await prismaClient.drink.findFirst({
+    const drink = await prismaClient.drink.findFirst({
       where: {
         name: {
           equals: name,
@@ -26,7 +26,7 @@ class DrinkRepository {
       },
     });
 
-    return dirnk;
+    return drink;
   }
 
   async create(_drink: DrinkInput) {
