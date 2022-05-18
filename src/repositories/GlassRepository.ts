@@ -1,5 +1,5 @@
-import { GlassInput } from '@models/Glass';
-import { prismaClient } from 'src/database/prismaClient';
+import { prismaClient } from '../database/prismaClient';
+import { GlassInput } from '../models/Glass';
 
 class GlassRepository {
   async findAll() {

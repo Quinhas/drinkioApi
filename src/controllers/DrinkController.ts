@@ -1,6 +1,6 @@
-import { DrinkInput } from '@models/Drink';
-import { drinkRepository } from '@repositories/DrinkRepository';
 import { Request, Response } from 'express';
+import { DrinkInput } from '../models/Drink';
+import { drinkRepository } from '../repositories/DrinkRepository';
 
 class DrinkController {
   async index(req: Request, res: Response) {

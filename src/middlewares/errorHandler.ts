@@ -1,5 +1,5 @@
-import log from '@utils/log';
 import { NextFunction, Request, Response } from 'express';
+import log from '../utils/log';
 
 export default (
   error: Error,

@@ -1,6 +1,6 @@
-import { CategoryInput } from '@models/Category';
-import { categoryRepository } from '@repositories/CategoryRepository';
 import { Request, Response } from 'express';
+import { CategoryInput } from '../models/Category';
+import { categoryRepository } from '../repositories/CategoryRepository';
 
 class CategoryController {
   async index(req: Request, res: Response) {

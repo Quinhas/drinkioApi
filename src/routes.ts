@@ -1,7 +1,7 @@
-import { categoryController } from '@controllers/CategoryController';
-import { drinkController } from '@controllers/DrinkController';
-import { glassController } from '@controllers/GlassController';
 import { Router } from 'express';
+import { categoryController } from './controllers/CategoryController';
+import { drinkController } from './controllers/DrinkController';
+import { glassController } from './controllers/GlassController';
 
 const router = Router();
 

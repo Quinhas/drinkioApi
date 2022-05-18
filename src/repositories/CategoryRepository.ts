@@ -1,5 +1,5 @@
-import { CategoryInput } from '@models/Category';
-import { prismaClient } from 'src/database/prismaClient';
+import { prismaClient } from "../database/prismaClient";
+import { CategoryInput } from "../models/Category";
 
 class CategoryRepository {
   async findAll(onlyTop = false) {

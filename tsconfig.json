@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "es6",
     "allowJs": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "removeComments": true,
     "lib": ["es6", "ESNext"],
@@ -12,16 +12,17 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"],
-    "baseUrl": ".",
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@config/*": ["./src/config/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@models/*": ["./src/models/*"],
-      "@repositories/*": ["./src/repositories/*"],
-      "@middlewares/*": ["./src/middlewares/*"]
-    },
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@controllers/*": ["./src/controllers/*"],
+    //   "@config/*": ["./src/config/*"],
+    //   "@utils/*": ["./src/utils/*"],
+    //   "@models/*": ["./src/models/*"],
+    //   "@repositories/*": ["./src/repositories/*"],
+    //   "@middlewares/*": ["./src/middlewares/*"]
+    // },
     "module": "CommonJS",
     "resolveJsonModule": true
-  }
+  },
+  "include": ["src"]
 }

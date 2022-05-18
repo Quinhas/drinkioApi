@@ -1,5 +1,5 @@
-import { DrinkInput } from '@models/Drink';
-import { prismaClient } from 'src/database/prismaClient';
+import { prismaClient } from '../database/prismaClient';
+import { DrinkInput } from '../models/Drink';
 
 class DrinkRepository {
   async findAll() {
@@ -11,6 +11,9 @@ class DrinkRepository {
   async findById(id: number) {
     const dirnk = await prismaClient.drink.findUnique({
       where: { id: id },
+      include: {
+        glass: true,
+      },
     });
 
     return dirnk;
@@ -21,7 +24,7 @@ class DrinkRepository {
       where: {
         name: {
           equals: name,
-          mode: 'insensitive'
+          mode: 'insensitive',
         },
       },
     });
