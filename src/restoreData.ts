@@ -1,5 +1,4 @@
 import axios from 'axios';
-import imageToBase64 from 'image-to-base64';
 
 const http = axios.create({
   baseURL: 'https://www.thecocktaildb.com/api/json/v1/1',
@@ -113,7 +112,7 @@ async function init() {
         };
       } = await http.get(`/filter.php?c=${strCategory}`);
 
-      const thumb = await imageToBase64(data.drinks[0].strDrinkThumb);
+      const thumb = data.drinks[0].strDrinkThumb;
 
       const _category = {
         originalName: strCategory.toUpperCase().trim(),
@@ -233,17 +232,13 @@ async function init() {
             }
           }
 
-          const thumbBase64 = await imageToBase64(
-            drinkToBeFormatted.strDrinkThumb
-          );
-
           const updatedDrink: DrinkProps = {
             name: drinkToBeFormatted.strDrink,
             alcoholic:
               drinkToBeFormatted.strAlcoholic === 'Alcoholic' ? true : false,
             categoryId: Number(category.id),
             glassId: Number(glass.id),
-            thumb: thumbBase64,
+            thumb: drinkToBeFormatted.strDrinkThumb,
             ingredients: ingredients,
             measures: measures,
             instructions: drinkToBeFormatted.strInstructions,
